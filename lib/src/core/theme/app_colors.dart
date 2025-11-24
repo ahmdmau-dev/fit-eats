@@ -74,4 +74,9 @@ class AppColors {
   static const double highEmphasis = 0.87;
   static const double mediumEmphasis = 0.60;
   static const double lowEmphasis = 0.38;
+
+  // Convenience getters (default to light theme)
+  static const Color textSecondary = textSecondaryLight;
+  static const Color border = dividerLight;
+  static const Color disabled = Color(0xFFE0E0E0);
 }

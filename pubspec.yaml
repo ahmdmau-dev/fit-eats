@@ -1,0 +1,118 @@
+name: fiteats
+description: "FitEats AI - AI-powered Meal & Workout Planner"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core State Management & Architecture
+  flutter_bloc: ^8.1.3
+  equatable: ^2.0.5
+  get_it: ^7.6.4
+  injectable: ^2.3.2
+  dartz: ^0.10.1
+
+  # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.2
+
+  # Code Generation
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+
+  # Networking
+  dio: ^5.4.0
+  pretty_dio_logger: ^1.3.1
+  connectivity_plus: ^5.0.2
+
+  # Backend (Optional Modes)
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.16.0
+  supabase_flutter: ^2.0.3
+
+  # UI Components
+  google_fonts: ^6.1.0
+  lucide_icons_flutter: ^1.0.0
+  flutter_svg: ^2.0.9
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  flutter_animate: ^4.5.0
+  lottie: ^3.0.0
+
+  # Charts & Progress Indicators
+  fl_chart: ^0.66.0
+  percent_indicator: ^4.2.3
+  smooth_page_indicator: ^1.1.0
+
+  # Utilities
+  flutter_dotenv: ^5.1.0
+  intl: ^0.19.0
+  path_provider: ^2.1.1
+  url_launcher: ^6.2.2
+  package_info_plus: ^5.0.1
+  flutter_native_splash: ^2.3.8
+  flutter_launcher_icons: ^0.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code Generation
+  build_runner: ^2.4.6
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+  injectable_generator: ^2.4.1
+  hive_generator: ^2.0.1
+
+  # Linting & Testing
+  flutter_lints: ^3.0.1
+  mockito: ^5.4.4
+  bloc_test: ^9.1.5
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  uses-material-design: true
+
+  # Assets
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lottie/
+    - .env
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package

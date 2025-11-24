@@ -1,0 +1,35 @@
+flutter_native_splash:
+  # Background color
+  color: "#FFFFFF"
+
+  # App logo/image
+  image: assets/images/splash_logo.png
+
+  # Branding image (bottom of splash screen)
+  # branding: assets/images/branding.png
+
+  # Color of branding image background
+  color_dark: "#1A1A1A"
+  image_dark: assets/images/splash_logo_dark.png
+
+  # Android specific
+  android_12:
+    image: assets/images/splash_logo.png
+    color: "#FFFFFF"
+    image_dark: assets/images/splash_logo_dark.png
+    color_dark: "#1A1A1A"
+
+  # iOS specific
+  ios_content_mode: center
+
+  # Web specific
+  web: false
+
+  # Fullscreen mode (Android)
+  fullscreen: true
+
+  # Android screen orientation
+  android_screen_orientation: portrait
+
+  # iOS screen orientation
+  ios_screen_orientation: portrait

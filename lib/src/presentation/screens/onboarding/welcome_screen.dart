@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
                 width: 120,
                 height: 120,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.1),
+                  color: AppColors.primary.withValues(alpha: .1),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -48,19 +48,19 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 48),
               // Features List
-              _FeatureTile(
+              const _FeatureTile(
                 icon: Icons.restaurant_menu,
                 title: 'Smart Meal Plans',
                 subtitle: 'AI-generated meal plans tailored to your goals',
               ),
               const SizedBox(height: 16),
-              _FeatureTile(
+              const _FeatureTile(
                 icon: Icons.fitness_center,
                 title: 'Custom Workouts',
                 subtitle: 'Personalized workout routines for your level',
               ),
               const SizedBox(height: 16),
-              _FeatureTile(
+              const _FeatureTile(
                 icon: Icons.shopping_cart,
                 title: 'Shopping Lists',
                 subtitle: 'Auto-generated grocery lists from your meals',
@@ -108,24 +108,17 @@ class _FeatureTile extends StatelessWidget {
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: AppColors.primary.withOpacity(0.1),
+            color: AppColors.primary.withValues(alpha: .1),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(
-            icon,
-            color: AppColors.primary,
-            size: 24,
-          ),
+          child: Icon(icon, color: AppColors.primary, size: 24),
         ),
         const SizedBox(width: 16),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: AppTextStyles.titleMedium,
-              ),
+              Text(title, style: AppTextStyles.titleMedium),
               const SizedBox(height: 4),
               Text(
                 subtitle,

@@ -64,7 +64,7 @@ class AppTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: AppTextStyles.bodyLarge.copyWith(
-              color: AppColors.textSecondary.withOpacity(0.5),
+              color: AppColors.textSecondary.withValues(alpha: 0.5),
             ),
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
@@ -92,7 +92,9 @@ class AppTextField extends StatelessWidget {
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppColors.border.withOpacity(0.5)),
+              borderSide: BorderSide(
+                color: AppColors.border.withValues(alpha: 0.5),
+              ),
             ),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,

@@ -9,9 +9,7 @@ class MealPlansScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Meal Plans'),
-      ),
+      appBar: AppBar(title: const Text('Meal Plans')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -21,13 +19,10 @@ class MealPlansScreen extends StatelessWidget {
               Icon(
                 Icons.restaurant_menu,
                 size: 80,
-                color: AppColors.primary.withOpacity(0.5),
+                color: AppColors.primary.withValues(alpha: .5),
               ),
               const SizedBox(height: 24),
-              Text(
-                'No Meal Plans Yet',
-                style: AppTextStyles.headlineMedium,
-              ),
+              Text('No Meal Plans Yet', style: AppTextStyles.headlineMedium),
               const SizedBox(height: 12),
               Text(
                 'Generate your first AI-powered meal plan to get started',

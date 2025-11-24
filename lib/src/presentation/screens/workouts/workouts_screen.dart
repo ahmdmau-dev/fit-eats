@@ -9,9 +9,7 @@ class WorkoutsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Workout Plans'),
-      ),
+      appBar: AppBar(title: const Text('Workout Plans')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -21,13 +19,10 @@ class WorkoutsScreen extends StatelessWidget {
               Icon(
                 Icons.fitness_center,
                 size: 80,
-                color: AppColors.secondary.withOpacity(0.5),
+                color: AppColors.secondary.withValues(alpha: 0.5),
               ),
               const SizedBox(height: 24),
-              Text(
-                'No Workout Plans Yet',
-                style: AppTextStyles.headlineMedium,
-              ),
+              Text('No Workout Plans Yet', style: AppTextStyles.headlineMedium),
               const SizedBox(height: 12),
               Text(
                 'Generate your first AI-powered workout plan to get started',

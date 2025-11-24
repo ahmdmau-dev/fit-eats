@@ -55,10 +55,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             // Today's Overview
-            Text(
-              'Today\'s Overview',
-              style: AppTextStyles.titleLarge,
-            ),
+            Text('Today\'s Overview', style: AppTextStyles.titleLarge),
             const SizedBox(height: 16),
             // Stats Grid
             Row(
@@ -92,10 +89,7 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             // Quick Actions
-            Text(
-              'Quick Actions',
-              style: AppTextStyles.titleLarge,
-            ),
+            Text('Quick Actions', style: AppTextStyles.titleLarge),
             const SizedBox(height: 16),
             _QuickActionCard(
               title: 'Generate Meal Plan',
@@ -171,21 +165,14 @@ class _QuickActionCard extends StatelessWidget {
                   color: color.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(
-                  icon,
-                  color: color,
-                  size: 28,
-                ),
+                child: Icon(icon, color: color, size: 28),
               ),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      style: AppTextStyles.titleMedium,
-                    ),
+                    Text(title, style: AppTextStyles.titleMedium),
                     const SizedBox(height: 4),
                     Text(
                       subtitle,
@@ -196,7 +183,7 @@ class _QuickActionCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Icon(
+              const Icon(
                 Icons.arrow_forward_ios,
                 size: 16,
                 color: AppColors.textSecondary,

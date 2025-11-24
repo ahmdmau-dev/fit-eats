@@ -6,6 +6,7 @@ import 'package:fiteats/src/presentation/screens/shopping_list/shopping_list_scr
 import 'package:fiteats/src/presentation/screens/workouts/workouts_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 /// Application router configuration using GoRouter
 class AppRouter {
@@ -257,13 +258,13 @@ class _PlaceholderShell extends StatelessWidget {
         currentIndex: navigationShell.currentIndex,
         onTap: (index) => navigationShell.goBranch(index),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.restaurant), label: 'Meals'),
+          BottomNavigationBarItem(icon: Icon(LucideIcons.house), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(LucideIcons.utensils), label: 'Meals'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center),
+            icon: Icon(LucideIcons.dumbbell),
             label: 'Workouts',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(LucideIcons.user), label: 'Profile'),
         ],
       ),
     );

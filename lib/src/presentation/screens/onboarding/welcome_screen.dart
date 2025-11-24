@@ -3,6 +3,7 @@ import 'package:fiteats/src/core/theme/app_text_styles.dart';
 import 'package:fiteats/src/presentation/widgets/common/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -26,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
-                  Icons.fitness_center,
+                  LucideIcons.apple,
                   size: 60,
                   color: AppColors.primary,
                 ),
@@ -49,19 +50,19 @@ class WelcomeScreen extends StatelessWidget {
               const SizedBox(height: 48),
               // Features List
               const _FeatureTile(
-                icon: Icons.restaurant_menu,
+                icon: LucideIcons.utensils,
                 title: 'Smart Meal Plans',
                 subtitle: 'AI-generated meal plans tailored to your goals',
               ),
               const SizedBox(height: 16),
               const _FeatureTile(
-                icon: Icons.fitness_center,
+                icon: LucideIcons.dumbbell,
                 title: 'Custom Workouts',
                 subtitle: 'Personalized workout routines for your level',
               ),
               const SizedBox(height: 16),
               const _FeatureTile(
-                icon: Icons.shopping_cart,
+                icon: LucideIcons.shoppingCart,
                 title: 'Shopping Lists',
                 subtitle: 'Auto-generated grocery lists from your meals',
               ),
@@ -72,7 +73,7 @@ class WelcomeScreen extends StatelessWidget {
                 onPressed: () {
                   context.go('/home');
                 },
-                icon: Icons.arrow_forward,
+                icon: LucideIcons.arrowRight,
               ),
               const SizedBox(height: 16),
               Text(

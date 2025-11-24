@@ -2,6 +2,7 @@ import 'package:fiteats/src/core/theme/app_colors.dart';
 import 'package:fiteats/src/core/theme/app_text_styles.dart';
 import 'package:fiteats/src/presentation/widgets/common/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class WorkoutsScreen extends StatelessWidget {
   const WorkoutsScreen({super.key});
@@ -17,7 +18,7 @@ class WorkoutsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                Icons.fitness_center,
+                LucideIcons.dumbbell,
                 size: 80,
                 color: AppColors.secondary.withValues(alpha: 0.5),
               ),
@@ -42,7 +43,7 @@ class WorkoutsScreen extends StatelessWidget {
                     ),
                   );
                 },
-                icon: Icons.auto_awesome,
+                icon: LucideIcons.sparkles,
                 isFullWidth: false,
               ),
             ],

@@ -3,6 +3,7 @@ import 'package:fiteats/src/core/theme/app_text_styles.dart';
 import 'package:fiteats/src/presentation/widgets/common/stat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text('FitEats AI'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
+            icon: const Icon(LucideIcons.settings),
             onPressed: () {
               // TODO: Navigate to settings
             },
@@ -65,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                     title: 'Calories',
                     value: '0',
                     subtitle: '/ 2000 kcal',
-                    icon: Icons.local_fire_department,
+                    icon: LucideIcons.flame,
                     color: AppColors.calories,
                     onTap: () {
                       context.go('/meal-plans');
@@ -78,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                     title: 'Workouts',
                     value: '0',
                     subtitle: 'completed',
-                    icon: Icons.fitness_center,
+                    icon: LucideIcons.dumbbell,
                     color: AppColors.strength,
                     onTap: () {
                       context.go('/workouts');
@@ -94,7 +95,7 @@ class HomeScreen extends StatelessWidget {
             _QuickActionCard(
               title: 'Generate Meal Plan',
               subtitle: 'AI-powered meal suggestions for today',
-              icon: Icons.restaurant_menu,
+              icon: LucideIcons.utensils,
               color: AppColors.primary,
               onTap: () {
                 context.go('/meal-plans');
@@ -104,7 +105,7 @@ class HomeScreen extends StatelessWidget {
             _QuickActionCard(
               title: 'Generate Workout',
               subtitle: 'Get a personalized workout routine',
-              icon: Icons.fitness_center,
+              icon: LucideIcons.dumbbell,
               color: AppColors.secondary,
               onTap: () {
                 context.go('/workouts');
@@ -114,7 +115,7 @@ class HomeScreen extends StatelessWidget {
             _QuickActionCard(
               title: 'Shopping List',
               subtitle: 'View and manage your grocery list',
-              icon: Icons.shopping_cart,
+              icon: LucideIcons.shoppingCart,
               color: AppColors.accent,
               onTap: () {
                 context.go('/shopping-list');
@@ -184,7 +185,7 @@ class _QuickActionCard extends StatelessWidget {
                 ),
               ),
               const Icon(
-                Icons.arrow_forward_ios,
+                LucideIcons.chevronRight,
                 size: 16,
                 color: AppColors.textSecondary,
               ),

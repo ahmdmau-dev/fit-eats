@@ -2,6 +2,7 @@ import 'package:fiteats/src/core/theme/app_colors.dart';
 import 'package:fiteats/src/core/theme/app_text_styles.dart';
 import 'package:fiteats/src/presentation/widgets/common/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class ShoppingListScreen extends StatelessWidget {
   const ShoppingListScreen({super.key});
@@ -19,7 +20,7 @@ class ShoppingListScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                Icons.shopping_cart,
+                LucideIcons.shoppingCart,
                 size: 80,
                 color: AppColors.accent.withOpacity(0.5),
               ),
@@ -47,7 +48,7 @@ class ShoppingListScreen extends StatelessWidget {
                     ),
                   );
                 },
-                icon: Icons.add,
+                icon: LucideIcons.plus,
                 isFullWidth: false,
               ),
             ],

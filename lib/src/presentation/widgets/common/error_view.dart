@@ -2,6 +2,7 @@ import 'package:fiteats/src/core/theme/app_colors.dart';
 import 'package:fiteats/src/core/theme/app_text_styles.dart';
 import 'package:fiteats/src/presentation/widgets/common/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class ErrorView extends StatelessWidget {
   const ErrorView({
@@ -22,7 +23,7 @@ class ErrorView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.error_outline,
+              LucideIcons.circleAlert,
               size: 64,
               color: AppColors.error.withOpacity(0.5),
             ),
@@ -46,7 +47,7 @@ class ErrorView extends StatelessWidget {
                 text: 'Try Again',
                 onPressed: onRetry,
                 isFullWidth: false,
-                icon: Icons.refresh,
+                icon: LucideIcons.refreshCw,
               ),
             ],
           ],

@@ -52,6 +52,14 @@ class Failure with _$Failure {
   const factory Failure.unknown({
     @Default('Unknown error occurred') String message,
   }) = UnknownFailure;
+
+  const factory Failure.notImplemented({
+    @Default('Feature not implemented') String message,
+  }) = NotImplementedFailure;
+
+  const factory Failure.unexpected({
+    @Default('Unexpected error occurred') String message,
+  }) = UnexpectedFailure;
 }
 
 /// Extension to get user-friendly error messages
@@ -102,6 +110,8 @@ extension FailureX on Failure {
         return 'Too many requests. Please try again later.';
       },
       unknown: (message) => 'Something went wrong. Please try again.',
+      notImplemented: (message) => 'This feature is coming soon.',
+      unexpected: (message) => 'An unexpected error occurred. Please try again.',
     );
   }
 }

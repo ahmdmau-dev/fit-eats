@@ -12,11 +12,11 @@ dependencies:
     sdk: flutter
 
   # Core State Management & Architecture
-  flutter_bloc: ^8.1.3
+  dartz: ^0.10.1
   equatable: ^2.0.5
+  flutter_bloc: ^8.1.3
   get_it: ^7.6.4
   injectable: ^2.3.2
-  dartz: ^0.10.1
 
   # Local Storage
   hive: ^2.2.3
@@ -68,9 +68,9 @@ dev_dependencies:
   # Code Generation
   build_runner: ^2.4.6
   freezed: ^2.4.5
-  json_serializable: ^6.7.1
-  injectable_generator: ^2.4.1
   hive_generator: ^2.0.1
+  injectable_generator: ^2.4.1
+  json_serializable: ^6.7.1
 
   # Linting & Testing
   flutter_lints: ^3.0.1

@@ -103,7 +103,7 @@ linter:
     public_member_api_docs: false
 
     # Pub
-    sort_pub_dependencies: true
+    sort_pub_dependencies: false  # Disabled to allow organized sections
 
     # Other
     always_use_package_imports: true

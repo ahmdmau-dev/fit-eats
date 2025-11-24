@@ -1,4 +1,9 @@
 import 'package:fiteats/src/core/config/routes.dart';
+import 'package:fiteats/src/presentation/screens/home/home_screen.dart';
+import 'package:fiteats/src/presentation/screens/meal_plans/meal_plans_screen.dart';
+import 'package:fiteats/src/presentation/screens/onboarding/welcome_screen.dart';
+import 'package:fiteats/src/presentation/screens/shopping_list/shopping_list_screen.dart';
+import 'package:fiteats/src/presentation/screens/workouts/workouts_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,11 +22,11 @@ class AppRouter {
     debugLogDiagnostics: true,
     initialLocation: Routes.splash,
     routes: [
-      // Splash Screen
+      // Splash/Welcome Screen
       GoRoute(
         path: Routes.splash,
         name: 'splash',
-        builder: (context, state) => const _PlaceholderPage(name: 'Splash'),
+        builder: (context, state) => const WelcomeScreen(),
       ),
 
       // Onboarding Flow
@@ -75,7 +80,7 @@ class AppRouter {
               GoRoute(
                 path: Routes.home,
                 name: 'home',
-                builder: (context, state) => const _PlaceholderPage(name: 'Home'),
+                builder: (context, state) => const HomeScreen(),
               ),
             ],
           ),
@@ -86,8 +91,7 @@ class AppRouter {
               GoRoute(
                 path: Routes.mealPlans,
                 name: 'meal-plans',
-                builder: (context, state) =>
-                    const _PlaceholderPage(name: 'Meal Plans'),
+                builder: (context, state) => const MealPlansScreen(),
                 routes: [
                   GoRoute(
                     path: 'generator',
@@ -124,8 +128,7 @@ class AppRouter {
               GoRoute(
                 path: Routes.workouts,
                 name: 'workouts',
-                builder: (context, state) =>
-                    const _PlaceholderPage(name: 'Workouts'),
+                builder: (context, state) => const WorkoutsScreen(),
                 routes: [
                   GoRoute(
                     path: 'generator',
@@ -208,8 +211,7 @@ class AppRouter {
       GoRoute(
         path: Routes.shoppingList,
         name: 'shopping-list',
-        builder: (context, state) =>
-            const _PlaceholderPage(name: 'Shopping List'),
+        builder: (context, state) => const ShoppingListScreen(),
       ),
     ],
   );
@@ -224,17 +226,12 @@ class _PlaceholderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(name),
-      ),
+      appBar: AppBar(title: Text(name)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              name,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text(name, style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: 16),
             Text(
               'This screen will be implemented later',
@@ -260,22 +257,13 @@ class _PlaceholderShell extends StatelessWidget {
         currentIndex: navigationShell.currentIndex,
         onTap: (index) => navigationShell.goBranch(index),
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant),
-            label: 'Meals',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.restaurant), label: 'Meals'),
           BottomNavigationBarItem(
             icon: Icon(Icons.fitness_center),
             label: 'Workouts',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

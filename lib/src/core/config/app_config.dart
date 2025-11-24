@@ -102,6 +102,11 @@ class AppConfig {
     if (aiProvider == AIProvider.mock) return true;
     return currentAiApiKey.isNotEmpty;
   }
+
+  /// Convenience getters for AI keys
+  static String get openAIKey => openAiApiKey;
+  static String get geminiKey => geminiApiKey;
+  static String get claudeKey => claudeApiKey;
 }
 
 /// AI Provider enum

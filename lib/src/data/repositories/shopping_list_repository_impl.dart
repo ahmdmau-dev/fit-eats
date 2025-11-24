@@ -21,26 +21,16 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       final model = await _localDataSource.getShoppingListItem(id);
 
       if (model == null) {
-        return Left(
-          Failure.cache(
-            message: 'Shopping list item not found',
-          ),
+        return const Left(
+          Failure.cache(message: 'Shopping list item not found'),
         );
       }
 
       return Right(model.toEntity());
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -53,17 +43,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       await _localDataSource.saveShoppingListItem(model);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -73,17 +55,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       await _localDataSource.deleteShoppingListItem(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -96,23 +70,15 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
   @override
   Future<Either<Failure, List<ShoppingListItem>>>
-      getShoppingListItemsByCategory(
+  getShoppingListItemsByCategory(
     String userId,
     ShoppingCategory category,
   ) async {
@@ -124,17 +90,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -147,17 +105,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -170,17 +120,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -190,17 +132,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       await _localDataSource.toggleChecked(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -210,17 +144,9 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
       await _localDataSource.clearCheckedItems(userId);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -231,7 +157,7 @@ class ShoppingListRepositoryImpl implements ShoppingListRepository {
   ) async {
     // TODO: Implement adding items from meal plan
     // This will be implemented when we have the meal plan to shopping list conversion logic
-    return Left(
+    return const Left(
       Failure.notImplemented(
         message: 'Add items from meal plan not implemented yet',
       ),

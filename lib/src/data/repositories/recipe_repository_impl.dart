@@ -20,26 +20,14 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final model = await _localDataSource.getRecipe(id);
 
       if (model == null) {
-        return Left(
-          Failure.cache(
-            message: 'Recipe not found',
-          ),
-        );
+        return const Left(Failure.cache(message: 'Recipe not found'));
       }
 
       return Right(model.toEntity());
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -50,17 +38,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       await _localDataSource.saveRecipe(model);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -70,17 +50,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       await _localDataSource.deleteRecipe(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -91,17 +63,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -112,17 +76,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -135,17 +91,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -155,17 +103,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       await _localDataSource.toggleFavorite(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -178,8 +118,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final filtered = models.where((recipe) {
         final lowerKeyword = keyword.toLowerCase();
         final titleMatch = recipe.title.toLowerCase().contains(lowerKeyword);
-        final descMatch =
-            recipe.description.toLowerCase().contains(lowerKeyword);
+        final descMatch = recipe.description.toLowerCase().contains(
+          lowerKeyword,
+        );
         final ingredientsMatch = recipe.ingredients.any(
           (ingredient) => ingredient.toLowerCase().contains(lowerKeyword),
         );
@@ -190,17 +131,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final entities = filtered.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -217,8 +150,7 @@ class RecipeRepositoryImpl implements RecipeRepository {
 
         return tags.any(
           (tag) => recipe.tags!.any(
-            (recipeTag) =>
-                recipeTag.toLowerCase() == tag.toLowerCase(),
+            (recipeTag) => recipeTag.toLowerCase() == tag.toLowerCase(),
           ),
         );
       }).toList();
@@ -226,17 +158,9 @@ class RecipeRepositoryImpl implements RecipeRepository {
       final entities = filtered.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 }

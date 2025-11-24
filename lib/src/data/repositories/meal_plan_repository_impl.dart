@@ -19,26 +19,14 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
       final model = await _localDataSource.getMealPlan(id);
 
       if (model == null) {
-        return Left(
-          Failure.cache(
-            message: 'Meal plan not found',
-          ),
-        );
+        return const Left(Failure.cache(message: 'Meal plan not found'));
       }
 
       return Right(model.toEntity());
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -53,17 +41,9 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
 
       return Right(model.toEntity());
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -74,17 +54,9 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
       await _localDataSource.saveMealPlan(model);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -94,17 +66,9 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
       await _localDataSource.deleteMealPlan(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -114,23 +78,14 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
       final models = await _localDataSource.getAllMealPlans();
 
       // Filter by userId
-      final filtered =
-          models.where((model) => model.userId == userId).toList();
+      final filtered = models.where((model) => model.userId == userId).toList();
 
       final entities = filtered.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -140,22 +95,16 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
     DateTime endDate,
   ) async {
     try {
-      final models =
-          await _localDataSource.getMealPlansForDateRange(startDate, endDate);
+      final models = await _localDataSource.getMealPlansForDateRange(
+        startDate,
+        endDate,
+      );
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -169,7 +118,7 @@ class MealPlanRepositoryImpl implements MealPlanRepository {
   }) async {
     // TODO: Implement AI-powered meal plan generation
     // This will be implemented in Phase 5 when we add AI service integration
-    return Left(
+    return const Left(
       Failure.notImplemented(
         message: 'AI meal plan generation not implemented yet',
       ),

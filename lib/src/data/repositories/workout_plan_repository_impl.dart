@@ -20,26 +20,14 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       final model = await _localDataSource.getWorkoutPlan(id);
 
       if (model == null) {
-        return Left(
-          Failure.cache(
-            message: 'Workout plan not found',
-          ),
-        );
+        return const Left(Failure.cache(message: 'Workout plan not found'));
       }
 
       return Right(model.toEntity());
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -56,17 +44,9 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
 
       return Right(model.toEntity());
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -77,17 +57,9 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       await _localDataSource.saveWorkoutPlan(model);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -97,17 +69,9 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       await _localDataSource.deleteWorkoutPlan(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -119,23 +83,14 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       final models = await _localDataSource.getAllWorkoutPlans();
 
       // Filter by userId
-      final filtered =
-          models.where((model) => model.userId == userId).toList();
+      final filtered = models.where((model) => model.userId == userId).toList();
 
       final entities = filtered.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -152,17 +107,9 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       final entities = models.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -174,23 +121,14 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       final models = await _localDataSource.getCompletedWorkoutPlans();
 
       // Filter by userId
-      final filtered =
-          models.where((model) => model.userId == userId).toList();
+      final filtered = models.where((model) => model.userId == userId).toList();
 
       final entities = filtered.map((model) => model.toEntity()).toList();
       return Right(entities);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -200,17 +138,9 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
       await _localDataSource.toggleCompletion(id);
       return const Right(null);
     } on CacheException catch (e) {
-      return Left(
-        Failure.cache(
-          message: e.message,
-        ),
-      );
+      return Left(Failure.cache(message: e.message));
     } catch (e) {
-      return Left(
-        Failure.unexpected(
-          message: e.toString(),
-        ),
-      );
+      return Left(Failure.unexpected(message: e.toString()));
     }
   }
 
@@ -224,7 +154,7 @@ class WorkoutPlanRepositoryImpl implements WorkoutPlanRepository {
   }) async {
     // TODO: Implement AI-powered workout plan generation
     // This will be implemented in Phase 5 when we add AI service integration
-    return Left(
+    return const Left(
       Failure.notImplemented(
         message: 'AI workout plan generation not implemented yet',
       ),
